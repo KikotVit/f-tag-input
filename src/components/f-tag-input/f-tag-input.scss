@@ -1,13 +1,15 @@
-@use 'variables' as *;
+@use '../../styles/variables' as *;
 
-.f-tag-input {
+:root {
     --f-tag-input-bg: #{$f-tag-input-bg};
     --f-tag-input-tag-bg: #{$f-tag-input-tag-bg};
     --f-tag-input-tag-color: #{$f-tag-input-tag-color};
     --f-tag-input-tag-text-color: #{$f-tag-input-tag-text-color};
     --f-tag-input-tag-text-color-active: #{$f-tag-input-tag-text-color-active};
     --f-tag-input-tag-active-bg: #{$f-tag-input-tag-active-bg};
+}
 
+.f-tag-input {
     user-select: none;
     position: absolute;
     top: 50%;
@@ -62,7 +64,7 @@
         width: calc(100% - $f-tag-input-padding * 2);
         height: 48px;
         padding: $f-tag-input-padding;
-        background: transparent;
+        background: $f-tag-input-bg;
         border: $f-tag-input-border;
         border-radius: $f-tag-input-border-radius;
     }
