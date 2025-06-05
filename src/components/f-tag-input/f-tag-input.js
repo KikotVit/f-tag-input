@@ -11,7 +11,12 @@ class FTagInput extends HTMLElement {
     const initialTags = this.getAttribute('tags');
     this.render();
     if (initialTags) {
-      JSON.parse(initialTags).forEach(tag => this.addTag(tag));
+      try {
+        JSON.parse(initialTags).forEach(tag => this.addTag(tag));
+      } catch (error) {
+        console.error('Invalid tags format. Expected JSON array.', error);
+        
+      }
     }
     this.addListeners();
   }
