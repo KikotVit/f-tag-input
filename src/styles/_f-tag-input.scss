@@ -1,0 +1,69 @@
+@use 'variables' as *;
+
+.f-tag-input {
+    --f-tag-input-bg: #{$f-tag-input-bg};
+    --f-tag-input-tag-bg: #{$f-tag-input-tag-bg};
+    --f-tag-input-tag-color: #{$f-tag-input-tag-color};
+    --f-tag-input-tag-text-color: #{$f-tag-input-tag-text-color};
+    --f-tag-input-tag-text-color-active: #{$f-tag-input-tag-text-color-active};
+    --f-tag-input-tag-active-bg: #{$f-tag-input-tag-active-bg};
+
+    user-select: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: $f-tag-input-width;
+    padding: $f-tag-input-padding;
+    transform: translate(-50%, -50%);
+    background-color: $f-tag-input-bg;
+    border: $f-tag-input-border;
+    border-radius: $f-tag-input-border-radius;
+    overflow: auto;
+
+    @media (max-width: 800px) {
+        width: calc(100% - $f-tag-input-padding * 2);
+    }
+
+    &__tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: $f-tag-input-gap;
+        margin-bottom: $f-tag-input-gap;
+    }
+
+    &__tag {
+        display: flex;
+        align-items: center;
+        background-color: var(--f-tag-input-tag-bg);
+        color: var(--f-tag-input-tag-text-color);
+        padding: $f-tag-input-padding;
+        border: $f-tag-input-border;
+        border-radius: $f-tag-input-border-radius;
+        font-size: $f-tag-input-font-size;
+        
+
+        &--active {
+            background-color: var(--f-tag-input-tag-active-bg);
+            color: var(--f-tag-input-tag-text-color-active);
+            font-weight: 600;
+        }
+
+        & .f-tag-input__remove {
+            margin-left: 8px;
+            cursor: pointer;
+            font-size: $f-tag-input-font-size;
+            color: var(--f-tag-input-text-color);
+        }
+    }
+
+    &__input {
+        outline: none;
+        font-size: $f-tag-input-font-size;
+        width: calc(100% - $f-tag-input-padding * 2);
+        height: 48px;
+        padding: $f-tag-input-padding;
+        background: transparent;
+        border: $f-tag-input-border;
+        border-radius: $f-tag-input-border-radius;
+    }
+}
