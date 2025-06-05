@@ -1,13 +1,16 @@
 @use 'variables' as *;
 
-.f-tag-input {
+:root {
     --f-tag-input-bg: #{$f-tag-input-bg};
     --f-tag-input-tag-bg: #{$f-tag-input-tag-bg};
     --f-tag-input-tag-color: #{$f-tag-input-tag-color};
     --f-tag-input-tag-text-color: #{$f-tag-input-tag-text-color};
     --f-tag-input-tag-text-color-active: #{$f-tag-input-tag-text-color-active};
     --f-tag-input-tag-active-bg: #{$f-tag-input-tag-active-bg};
+    --f-tag-input-remove-icon-color: #{$f-tag-input-tag-remove-icon-color};
+}
 
+.f-tag-input {
     user-select: none;
     position: absolute;
     top: 50%;
@@ -18,10 +21,12 @@
     background-color: $f-tag-input-bg;
     border: $f-tag-input-border;
     border-radius: $f-tag-input-border-radius;
+    max-height: calc(100dvh - $f-tag-input-padding * 4);
     overflow: auto;
 
-    @media (max-width: 800px) {
-        width: calc(100% - $f-tag-input-padding * 2);
+
+    @media (max-width: $f-tag-input-width) {
+        width: calc(100% - $f-tag-input-padding * 4);
     }
 
     &__tags {
@@ -40,20 +45,24 @@
         border: $f-tag-input-border;
         border-radius: $f-tag-input-border-radius;
         font-size: $f-tag-input-font-size;
-        
+
+        .f-tag-input__remove {
+            margin-left: 8px;
+            cursor: pointer;
+            font-size: $f-tag-input-font-size;
+            color: var(--f-tag-input-remove-icon-color);
+        }
 
         &--active {
             background-color: var(--f-tag-input-tag-active-bg);
             color: var(--f-tag-input-tag-text-color-active);
             font-weight: 600;
+
+            .f-tag-input__remove {
+                color: var(--f-tag-input-tag-text-color-active);
+            }
         }
 
-        & .f-tag-input__remove {
-            margin-left: 8px;
-            cursor: pointer;
-            font-size: $f-tag-input-font-size;
-            color: var(--f-tag-input-text-color);
-        }
     }
 
     &__input {
@@ -62,7 +71,7 @@
         width: calc(100% - $f-tag-input-padding * 2);
         height: 48px;
         padding: $f-tag-input-padding;
-        background: transparent;
+        background: $f-tag-input-bg;
         border: $f-tag-input-border;
         border-radius: $f-tag-input-border-radius;
     }

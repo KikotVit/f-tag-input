@@ -12,6 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
   } catch (e) {
     console.warn('Invalid data-tags JSON');
   }
-
+  // initialize the tag input with the container and parsed tags
   createTagInput(container, tags);
 });
