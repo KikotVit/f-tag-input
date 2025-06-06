@@ -47,6 +47,7 @@
         border: $f-tag-input-border;
         border-radius: $f-tag-input-border-radius;
         font-size: $f-tag-input-font-size;
+        cursor: pointer;
 
         .f-tag-input__remove {
             margin-left: 8px;
@@ -58,7 +59,7 @@
         &--active {
             background-color: var(--f-tag-input-tag-active-bg);
             color: var(--f-tag-input-tag-text-color-active);
-            font-weight: 600;
+            // font-weight: 600;
 
             .f-tag-input__remove {
                 color: var(--f-tag-input-tag-text-color-active);

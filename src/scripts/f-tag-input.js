@@ -27,13 +27,6 @@ export function createTagInput(container, initialTags = []) {
         renderTag(text);
     };
 
-    const clear = () => {
-        tags.clear();
-        tagsDiv.innerHTML = '';
-    };
-
-    const getTags = () => Array.from(tags);
-
     input.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') {
             e.preventDefault();
@@ -43,10 +36,4 @@ export function createTagInput(container, initialTags = []) {
     });
 
     initialTags.forEach(addTag);
-
-    return {
-        addTag,
-        getTags,
-        clear,
-    };
 }
