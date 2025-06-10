@@ -1,15 +1,5 @@
 @use 'variables' as *;
 
-:root {
-    --f-tag-input-bg: #{$f-tag-input-bg};
-    --f-tag-input-tag-bg: #{$f-tag-input-tag-bg};
-    --f-tag-input-tag-color: #{$f-tag-input-tag-color};
-    --f-tag-input-tag-text-color: #{$f-tag-input-tag-text-color};
-    --f-tag-input-tag-text-color-active: #{$f-tag-input-tag-text-color-active};
-    --f-tag-input-tag-active-bg: #{$f-tag-input-tag-active-bg};
-    --f-tag-input-remove-icon-color: #{$f-tag-input-tag-remove-icon-color};
-}
-
 .f-tag-input {
     user-select: none;
     position: absolute;
@@ -39,6 +29,8 @@
     }
 
     &__tag {
+        --f-tag-input-tag-bg: #{$f-tag-input-tag-bg};
+        --f-tag-input-tag-text-color: #{$f-tag-input-tag-text-color};
         display: flex;
         align-items: center;
         background-color: var(--f-tag-input-tag-bg);
@@ -50,6 +42,7 @@
         cursor: pointer;
 
         .f-tag-input__remove {
+            --f-tag-input-remove-icon-color: #{$f-tag-input-tag-remove-icon-color};
             margin-left: 8px;
             cursor: pointer;
             font-size: $f-tag-input-font-size;
@@ -57,12 +50,11 @@
         }
 
         &--active {
-            background-color: var(--f-tag-input-tag-active-bg);
-            color: var(--f-tag-input-tag-text-color-active);
-            // font-weight: 600;
+            --f-tag-input-tag-bg: #{$f-tag-input-tag-active-bg};
+            --f-tag-input-tag-text-color: #{$f-tag-input-tag-text-color-active};
 
             .f-tag-input__remove {
-                color: var(--f-tag-input-tag-text-color-active);
+                --f-tag-input-remove-icon-color: #{$f-tag-input-tag-text-color-active};
             }
         }
 
