@@ -7,17 +7,8 @@ export function createTagInput(container, initialTags = []) {
         const tagDiv = document.createElement('div');
         tagDiv.className = 'f-tag-input__tag';
         tagDiv.innerHTML = `${text}<span class="f-tag-input__remove">×</span>`;
+        tagDiv.dataset.value = text;
         tagsDiv.appendChild(tagDiv);
-
-        tagDiv.addEventListener('click', () => {
-            tagDiv.classList.toggle('f-tag-input__tag--active');
-        });
-
-        tagDiv.querySelector('.f-tag-input__remove').addEventListener('click', (e) => {
-            e.stopPropagation();
-            tags.delete(text);
-            tagDiv.remove();
-        });
     };
 
     const addTag = (text) => {
@@ -32,6 +23,22 @@ export function createTagInput(container, initialTags = []) {
             e.preventDefault();
             addTag(input.value);
             input.value = '';
+        }
+    });
+
+    tagsDiv.addEventListener('click', (e) => {
+        const target = e.target;
+
+        if (target.classList.contains('f-tag-input__remove')) {
+            const tagDiv = target.closest('.f-tag-input__tag');
+            const value = tagDiv.dataset.value;
+            tags.delete(value);
+            tagDiv.remove();
+            return;
+        }
+
+        if (target.classList.contains('f-tag-input__tag')) {
+            target.classList.toggle('f-tag-input__tag--active');
         }
     });
 
